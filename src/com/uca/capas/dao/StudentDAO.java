@@ -7,9 +7,10 @@ import org.springframework.dao.DataAccessException;
 import com.uca.capas.domain.Student;
 
 public interface StudentDAO {
-	
-	public List<Student> findAll() throws DataAccessException;
-	
-	public Student findOne(Integer code) throws DataAccessException;
 
+	public List<Student> findAll() throws DataAccessException;
+	public Student findOne(Integer code) throws DataAccessException;
+	public Student findOne(String  name) throws DataAccessException;
+	public int guardar(Student s, Integer newRow) throws DataAccessException;
+	public int delete(Student s) throws DataAccessException;
 }

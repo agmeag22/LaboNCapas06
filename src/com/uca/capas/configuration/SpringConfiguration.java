@@ -29,7 +29,6 @@ public class SpringConfiguration implements WebMvcConfigurer {
 		return new MappingJackson2HttpMessageConverter();
 	}
 	
-	//Metodo estatico, le decimos a donde buscar archivos estaticos(Imagenes,css,js,etc)
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");

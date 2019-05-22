@@ -1,4 +1,3 @@
-    
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -21,10 +20,10 @@
 					<th>Status</th>
 				</tr>
 						<tr>
-							<td>${studentresult.sName}</td>
-							<td>${studentresult.lName}</td>
-							<td>${studentresult.sAge}</td>
-							<td>${studentresult.activoDelegate}</td>
+							<td>${rstudent.sName}</td>
+							<td>${rstudent.lName}</td>
+							<td>${rstudent.sAge}</td>
+							<td>${rstudent.activoDelegate}</td>
 						</tr>	
 			</table>
 	

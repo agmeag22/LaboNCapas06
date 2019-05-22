@@ -1,37 +1,38 @@
 package com.uca.capas.domain;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="public",name="student")
+@Table(schema = "public", name = "student")
 public class Student {
-	
+
 	@Id
-	@Column(name="id_student")
+	@GeneratedValue(generator = "student_id_student_seq", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "student_id_student_seq", sequenceName =  "public.student_id_student_seq", allocationSize = 1)
+	@Column(name = "id_student")
 	private Integer cStudent;
 	
-	@Column(name="s_name")
+	@Column(name = "s_name")
 	private String sName;
 	
-	@Column(name="s_lname")
+	@Column(name = "s_lname")
 	private String lName;
 	
-	@Column(name="s_age")
+	@Column(name = "s_age")
 	private Integer sAge;
 	
-	@Column(name="b_active")
+	@Column(name = "b_active")
 	private Boolean bActivo;
 
-	//Constructores, Setters y Getters
-	public Student(Integer cCLiente, String sName, String lName, Integer sAge, Boolean bActivo) {
+	public Student(Integer cStudent, String sName, String lName, Integer sAge, Boolean bActivo) {
 		super();
-		this.cStudent = cCLiente;
+		this.cStudent = cStudent;
 		this.sName = sName;
 		this.lName = lName;
 		this.sAge = sAge;
@@ -42,18 +43,12 @@ public class Student {
 		super();
 	}
 
-
-
-
-
-	//Setters y Getters
-	public Integer getcCLiente() {
+	public Integer getcStudent() {
 		return cStudent;
 	}
 
-	
-	public void setcCLiente(Integer cCLiente) {
-		this.cStudent = cCLiente;
+	public void setcStudent(Integer cStudent) {
+		this.cStudent = cStudent;
 	}
 
 	public String getsName() {
@@ -71,7 +66,6 @@ public class Student {
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
-	
 
 	public Integer getsAge() {
 		return sAge;
@@ -89,20 +83,11 @@ public class Student {
 		this.bActivo = bActivo;
 	}
 	
-	//Funciones delegate
 	public String getActivoDelegate() {
 		if(this.bActivo == null) return "";
 		else {
 			return bActivo == true ?"Activo":"Inactivo";
 		}
 	}
-	
-	/*public String getFechaDelegate() {
-		if(this.bDate == null) return "";
-		else {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			return sdf.format(this.bDate.getTime());
-		}
-	}*/
 	
 }
